@@ -19,10 +19,10 @@ class FilePrinter:
 		def next(self, evaled):
 			return FilePrinter.Block(self, self.depth + 1, evaled, evaled and self.enabled)
 
-	def __init__(self, file, outfp, defines=[]):
+	def __init__(self, file, outfp, defines={}):
 		self.file = file
 		self.defines = defines
-		self.outfp = None
+		self.outfp = outfp
 
 		# Current conditional block
 		self.block = FilePrinter.Block(None, 0, True, True)
